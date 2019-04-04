@@ -1,9 +1,13 @@
 <template>
   <div class="icons">
-    <div class="icon" v-for="item of iconList" :key="item.id">
-      <img class="icon-img" :src="item.iconUrl">
-      <p class="icon-title" v-text="item.iconTitle"></p>
-    </div>
+    <swiper>
+      <swiper-slide v-for="page of pages" :key="page.index">
+        <div class="icon" v-for="item of page" :key="item.id">
+          <img class="icon-img" :src="item.iconUrl">
+          <p class="icon-title" v-text="item.iconTitle"></p>
+        </div>
+      </swiper-slide>
+    </swiper>
   </div>
 </template>
 
@@ -44,32 +48,52 @@ export default {
         id: 'icon008',
         iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/ab/6f7d6e44963c9302.png',
         iconTitle: '泡温泉'
+      }, {
+        id: 'icon009',
+        iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/90/59a2f523ee2f9202.png',
+        iconTitle: '测试用例'
       }]
+    }
+  },
+  computed: {
+    pages () {
+      const pages = []
+      this.iconList.forEach((item, index) => {
+        const page = Math.floor(index / 8)
+        if (!pages[page]) {
+          pages[page] = []
+        }
+        pages[page].push(item)
+      })
+      return pages
     }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
-  .icons
+  @import '../../../assets/styles/varibles.styl'
+  @import '../../../assets/styles/mixins.styl'// 封装了一个文字过多时以省略号显示的样式
+  .icons >>> .swiper-container
     width: 100%
     height: 0
     padding-bottom: 50%
+    // overflow: hidden
+    // background-color: #eee
+  .icon
+    float: left
+    width: 25%
+    height: 0
+    padding-bottom: 25%
     overflow: hidden
     // background-color: #eee
-    .icon
-      float: left
-      width: 25%
-      height: 0
-      padding-bottom: 25%
+    text-align: center
+    padding-top: 1%
+    .icon-img
+      width: 70%
       overflow: hidden
-      // background-color: #eee
-      text-align: center
-      padding-top: 1%
-      .icon-img
-        width: 70%
-        overflow: hidden
-      .icon-title
-        color: #333
-        font-size: .3rem
+    .icon-title
+      color: $darkTextColor
+      font-size: .3rem
+      ellipsis()
 </style>
