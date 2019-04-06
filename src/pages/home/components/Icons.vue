@@ -84,6 +84,9 @@ export default {
     padding-bottom: 47%
     // overflow: hidden
     // background-color: #eee
+    .swiper-pagination
+      .swiper-pagination-bullet-active
+        background-color: #8cc7e7
   .icon
     float: left
     width: 23%

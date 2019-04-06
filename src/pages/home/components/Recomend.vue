@@ -71,8 +71,10 @@ export default {
   @import '../../../assets/styles/mixins.styl'// 封装了一个文字过多时以省略号显示的样式
   .recomend-title
     background-color: #eee
-    line-height: .8rem
+    height: .8rem
+    line-height: 1.05rem
     text-indent: .2rem
+    font-size: .35rem
   .item
     width: 100%
     height: 0
