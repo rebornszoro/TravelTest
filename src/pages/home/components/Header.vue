@@ -11,7 +11,7 @@
     </span>
     请输入城市、景点或游玩主题</div>
   <div class="header-right">
-    位置
+    {{this.city}}
     <span class="iconfont">
       &#xe64a;
     </span>
@@ -21,7 +21,10 @@
 
 <script>
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  props: {
+    city: String
+  }
 }
 </script>
 
@@ -47,7 +50,7 @@ export default {
       border-radius: .1rem
       color: #ccc
     .header-right
-      width: 1.24rem
+      width: 1.6rem
       float: right
       text-align: center
 </style>
