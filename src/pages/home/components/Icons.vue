@@ -85,7 +85,7 @@ export default {
   .icons >>> .swiper-container
     width: 100%
     height: 0
-    padding-bottom: 47%
+    padding-bottom: 48%
     // overflow: hidden
     // background-color: #eee
     .swiper-pagination
@@ -106,6 +106,7 @@ export default {
       overflow: hidden
     .icon-title
       color: $darkTextColor
-      font-size: .3rem
+      font-size: .23rem
+      padding-top: .05rem
       ellipsis()
 </style>

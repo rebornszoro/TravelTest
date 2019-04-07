@@ -10,12 +10,16 @@
       &#xe632;
     </span>
     请输入城市、景点或游玩主题</div>
-  <div class="header-right">
-    {{this.city}}
-    <span class="iconfont">
-      &#xe64a;
-    </span>
-  </div>
+  <router-link to="/city">
+    <div class="header-right">
+      <span class="iconfont">
+        &#xe64a;
+      </span>
+      <span class="city">
+        {{this.city}}
+      </span>
+    </div>
+  </router-link>
 </div>
 </template>
 
@@ -29,11 +33,12 @@ export default {
 </script>
 
 <style lang="stylus" scope>//scope make this css only have effects on this single-file-component
+  @import '../../../assets/styles/varibles.styl'
   .header
     display: flex
-    height: .86rem
-    line-height: .86rem
-    background: #00bcd4
+    height: $headerHeight
+    line-height: $headerHeight
+    background: $bgColor
     color: #fff
     .header-left
       width: .64rem
@@ -53,4 +58,12 @@ export default {
       width: 1.6rem
       float: right
       text-align: center
+      color: #fff
+      .iconfont
+        float: right
+        margin-right: .2rem
+        line-height: .9rem
+      .city
+        float: right
+        margin-right: .1rem
 </style>
