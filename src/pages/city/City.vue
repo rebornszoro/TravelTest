@@ -2,8 +2,8 @@
   <div>
     <city-header></city-header>
     <city-search></city-search>
-    <city-list :hotCities="this.hotCities" :cities="this.cities"></city-list>
-    <city-alphabet :cities="this.cities"></city-alphabet>
+    <city-list :hotCities="this.hotCities" :cities="this.cities" :alphabetClickedItem="this.alphabetClickedItem"></city-list>
+    <city-alphabet :cities="this.cities" @alphabetClicked="alphabetClicked"></city-alphabet>
   </div>
 </template>
 
@@ -24,7 +24,8 @@ export default {
   data () {
     return {
       hotCities: [],
-      cities: {}
+      cities: {},
+      alphabetClickedItem: ''
     }
   },
   methods: {
@@ -42,6 +43,9 @@ export default {
         this.cities = data.cities
         console.log(this.cities)
       }
+    },
+    alphabetClicked (msg) {
+      this.alphabetClickedItem = msg
     }
   },
   mounted () {
