@@ -48,7 +48,7 @@ export default {
         this.hotCities = data.hotCities
         // console.log(this.hotCities)
         this.cities = data.cities
-        console.log(this.cities)
+        // console.log(this.cities)
       }
     },
     alphabetClicked (msg) {
