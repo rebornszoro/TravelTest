@@ -1,9 +1,16 @@
 <template>
   <div>
     <city-header></city-header>
-    <city-search></city-search>
-    <city-list :hotCities="this.hotCities" :cities="this.cities" :alphabetClickedItem="this.alphabetClickedItem"></city-list>
-    <city-alphabet :cities="this.cities" @alphabetClicked="alphabetClicked"></city-alphabet>
+    <city-search :cities="this.cities"></city-search>
+    <city-list
+      :hotCities="this.hotCities"
+      :cities="this.cities"
+      :alphabetClickedItem="this.alphabetClickedItem"
+    ></city-list>
+    <city-alphabet
+      :cities="this.cities"
+      @alphabetClicked="alphabetClicked"
+    ></city-alphabet>
   </div>
 </template>
 

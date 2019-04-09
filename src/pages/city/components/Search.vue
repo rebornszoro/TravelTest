@@ -1,12 +1,68 @@
 <template>
-  <div class="search">
-    <input class="search-input" type="text" placeholder="输入城市名或拼音">
+  <div>
+    <div class="search">
+      <input v-model="keyword" class="search-input" type="text" placeholder=" 输入城市名或拼音">
+    </div>
+    <div class="search-content" v-show="listShow" ref="searchList">
+      <ul>
+        <li
+          v-for="item in this.result"
+          v-text="item.name"
+          :key="item.id"
+          class="search-item"
+        ></li>
+        <li class="search-item" v-show="noResult" v-text="'没有找到相关内容'"></li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
+import BScroll from 'better-scroll'
 export default {
-  name: 'CitySearch'
+  name: 'CitySearch',
+  props: {
+    cities: Object
+  },
+  data () {
+    return {
+      keyword: '',
+      result: [],
+      listShow: false
+    }
+  },
+  computed: {
+    noResult () {
+      return !this.result.length
+    }
+  },
+  watch: {
+    keyword () {
+      if (this.timer) {
+        clearTimeout(this.timer)
+      }
+      if (this.keyword) {
+        this.listShow = true
+      } else {
+        this.listShow = false
+      }
+      this.timer = setTimeout(() => {
+        this.result = []
+        for (let key in this.cities) {
+          this.cities[key].forEach((value) => {
+            if (value.spell.indexOf(this.keyword) > -1 || value.name.indexOf(this.keyword) > -1) {
+              this.result.push(value)
+            }
+          })
+        }
+        // console.log(this.result)
+        // this.list = result
+      }, 100)
+    }
+  },
+  mounted () {
+    this.scroll = new BScroll(this.$refs.searchList)
+  }
 }
 </script>
 
@@ -25,4 +81,18 @@ export default {
       border-radius: .06rem
       color: #666
       padding: 0 .1rem
+  .search-content
+    position: absolute
+    top: 1.6rem
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 1
+    background: #fff
+    overflow: hidden
+    .search-item
+      line-height: .62rem
+      padding-left: .2rem
+      color: #666
+      border-bottom: #eee solid .01rem
 </style>
