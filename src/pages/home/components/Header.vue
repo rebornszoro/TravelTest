@@ -15,9 +15,7 @@
       <span class="iconfont">
         &#xe64a;
       </span>
-      <span class="city">
-        {{this.city}}
-      </span>
+      <span class="city" v-text="this.$store.state.city"></span>
     </div>
   </router-link>
 </div>
@@ -27,7 +25,6 @@
 export default {
   name: 'HomeHeader',
   props: {
-    city: String
   }
 }
 </script>
@@ -55,7 +52,7 @@ export default {
       border-radius: .1rem
       color: #ccc
     .header-right
-      width: 1.6rem
+      width: 2.1rem
       float: right
       text-align: center
       color: #fff

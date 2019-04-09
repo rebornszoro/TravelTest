@@ -5,14 +5,19 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">中山</div>
+            <div class="button" v-text="this.$store.state.city"></div>
           </div>
         </div>
       </div>
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper" v-for="city of hotCities" :key="city.id">
+          <div
+            class="button-wrapper"
+            v-for="city of hotCities"
+            :key="city.id"
+            @click="handleCityClicked(city.name)"
+          >
             <div class="button" v-text="city.name"></div>
           </div>
         </div>
@@ -20,7 +25,13 @@
       <div class="area" v-for="(cityH, key) of cities" :key="key" :ref="key">
         <div class="title border-topbottom" v-text="key"></div>
         <div class="item-list">
-          <div class="item border-bottom" v-for="city of cityH" :key="city.id" v-text="city.name"></div>
+          <div
+            class="item border-bottom"
+            v-for="city of cityH"
+            :key="city.id"
+            v-text="city.name"
+            @click="handleCityClicked(city.name)"
+          ></div>
         </div>
       </div>
     </div>
@@ -35,6 +46,12 @@ export default {
     hotCities: Array,
     cities: Object,
     alphabetClickedItem: String
+  },
+  methods: {
+    handleCityClicked (name) {
+      // this.$store.dispatch('changeCity', name)
+      this.$store.commit('changeCity', name)
+    }
   },
   mounted () {
     this.scroll = new BScroll(this.$refs.wrapper)
@@ -56,7 +73,7 @@ export default {
     right: 0
     bottom: 0
     left: 0
-    // background: red
+    background: #fff
     overflow: hidden
     .border-topbottom
       &:before
