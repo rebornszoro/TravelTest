@@ -43,18 +43,24 @@ export default {
     },
     handleTouchStart () {
       this.touchStatus = true
+      // console.log('touch start!')
     },
     handleTouchMove (event) {
       if (this.touchStatus === true) {
-        const touchY = event.touches[0].clientY
-        const index = Math.floor((touchY - 187) / 20)
-        if (index < 0) {
-          this.$emit('alphabetClicked', this.letters[0])
-        } else if (index >= 0 && index <= 21) {
-          this.$emit('alphabetClicked', this.letters[index])
-        } else {
-          this.$emit('alphabetClicked', this.letters[21])
+        if (this.timer) {
+          clearTimeout(this.timer)
         }
+        this.timer = setTimeout(() => {
+          const touchY = event.touches[0].clientY
+          const index = Math.floor((touchY - 187) / 20)
+          if (index < 0) {
+            this.$emit('alphabetClicked', this.letters[0])
+          } else if (index >= 0 && index <= 21) {
+            this.$emit('alphabetClicked', this.letters[index])
+          } else {
+            this.$emit('alphabetClicked', this.letters[21])
+          }
+        }, 16)
       }
     },
     handleTouchEnd () {
