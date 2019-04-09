@@ -5,12 +5,15 @@
     </div>
     <div class="search-content" v-show="listShow" ref="searchList">
       <ul>
-        <li
-          v-for="item in this.result"
-          v-text="item.name"
-          :key="item.id"
-          class="search-item"
-        ></li>
+        <router-link to="/">
+          <li
+            v-for="item in this.result"
+            v-text="item.name"
+            :key="item.id"
+            class="search-item"
+            @click="handleCityClicked(item.name)"
+          ></li>
+        </router-link>
         <li class="search-item" v-show="noResult" v-text="'没有找到相关内容'"></li>
       </ul>
     </div>
@@ -58,6 +61,12 @@ export default {
         // console.log(this.result)
         // this.list = result
       }, 100)
+    }
+  },
+  methods: {
+    handleCityClicked (name) {
+      // this.$store.dispatch('changeCity', name)
+      this.$store.commit('changeCity', name)
     }
   },
   mounted () {

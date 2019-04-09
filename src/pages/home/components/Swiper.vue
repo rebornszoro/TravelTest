@@ -25,7 +25,8 @@ export default {
       // 所有的参数同 swiper 官方 api 参数
       // ...
         pagination: '.swiper-pagination',
-        loop: true
+        loop: true,
+        autoplay: 3000
       }
       // swiperList: [{
       //   id: '0001',
