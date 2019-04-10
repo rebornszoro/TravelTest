@@ -15,16 +15,18 @@
       <span class="iconfont">
         &#xe64a;
       </span>
-      <span class="city" v-text="this.$store.state.city"></span>
+      <span class="city" v-text="this.city"></span>
     </div>
   </router-link>
 </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'HomeHeader',
-  props: {
+  computed: {
+    ...mapState(['city'])
   }
 }
 </script>
