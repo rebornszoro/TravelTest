@@ -42,7 +42,7 @@ export default {
   methods: {
     scrollHandle (e) {
       this.top = e.pageY
-      // console.log(this.top)
+      // console.log('hhhhh')
       if (this.top < 60) {
         this.absShow = true
       } else {
@@ -57,6 +57,9 @@ export default {
   },
   activated () {
     window.addEventListener('scroll', this.scrollHandle)
+  },
+  deactivated () {
+    window.removeEventListener('scroll', this.scrollHandle)
   }
 }
 </script>
