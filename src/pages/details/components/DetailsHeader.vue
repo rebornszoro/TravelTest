@@ -42,13 +42,13 @@ export default {
   methods: {
     scrollHandle (e) {
       this.top = e.pageY
-      // console.log('hhhhh')
+      console.log(this.top)
       if (this.top < 60) {
         this.absShow = true
       } else {
         this.absShow = false
         if (this.top >= 60 && this.top <= 244) {
-          this.opacityStyle.opacity = (this.top - 60) / 184
+          this.opacityStyle.opacity = (this.top - 60) * 0.01
         } else {
           this.opacityStyle.opacity = 1
         }
@@ -73,7 +73,7 @@ export default {
     width: .8rem
     height: .8rem
     border-radius: .4rem
-    background: rgba(0, 0, 0, 0.8)
+    background: rgba(0, 0, 0, 0.3)
     text-align: center
     .iconfont
       color: white
@@ -90,6 +90,7 @@ export default {
     right: 0
     bottom: 0
     left: 0
+    z-index: 20
     .header-back
       float: left
       width: .64rem
