@@ -66,7 +66,7 @@ export default {
         width: 100%
     .swiper-pagination
       position: relative
-      top: .5rem
+      top: 1rem
       // background: #fff
       width: 100%
       color: #999
