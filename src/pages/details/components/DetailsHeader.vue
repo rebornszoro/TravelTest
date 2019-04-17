@@ -41,8 +41,12 @@ export default {
   },
   methods: {
     scrollHandle (e) {
-      this.top = e.pageY
-      console.log(this.top)
+      if (document.body.scrollTop) {
+        this.top = document.body.scrollTop
+      } else {
+        this.top = document.documentElement.scrollTop
+      }
+      // console.log(this.top)
       if (this.top < 60) {
         this.absShow = true
       } else {
