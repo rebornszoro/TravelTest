@@ -4,17 +4,17 @@
       <img
         class="banner-img"
         @click="handleGallaryClicked"
-        src="//img1.qunarzz.com/sight/p0/1709/41/411f234d79457081a3.img.jpg_600x330_b5e86902.jpg">
+        :src=bannerImg>
       <div class="banner-info">
-        <div class="banner-title">长隆野生动物世界(5A景区)</div>
+        <div class="banner-title" v-text="sightName"></div>
         <div class="banner-img-counts">
-          <span class="count">102</span>
+          <span class="count" v-text="gallaryImgs.length"></span>
           <span class="iconfont">&#xe6dd;</span>
         </div>
       </div>
     </div>
     <common-gallary
-      :imgList="imgList"
+      :imgList=gallaryImgs
       v-show="showGallary"
       @handleWrapperClicked="handleWrapperClicked"
     ></common-gallary>
@@ -28,13 +28,14 @@ export default {
   components: {
     CommonGallary
   },
+  props: {
+    sightName: String,
+    bannerImg: String,
+    gallaryImgs: Array
+  },
   data () {
     return {
-      showGallary: false,
-      imgList: [
-        'http://img1.qunarzz.com/sight/p0/1605/d4/d4e2dce9d328d5b290.img.jpg_r_800x800_892973df.jpg',
-        'http://img1.qunarzz.com/sight/p0/1605/d4/d4e2dce9d328d5b290.img.jpg_r_800x800_892973df.jpg'
-      ]
+      showGallary: false
     }
   },
   methods: {

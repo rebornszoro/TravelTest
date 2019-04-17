@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper" @click="handleWrapperClicked">
     <swiper :options="swiperOption" ref="mySwiper">
-      <swiper-slide v-for="(item, index) in imgList" :key="index">
+      <swiper-slide v-for="(item, index) of imgList" :key="index">
         <div class="img-wrapper">
           <img class="img" :src="item" />
         </div>
@@ -16,19 +16,13 @@ export default {
   name: 'CommonGallary',
   props: {
     imgList: {
-      type: Array,
-      default () {
-        return [
-          'http://img1.qunarzz.com/sight/p0/1709/41/411f234d79457081a3.img.jpg_600x330_b5e86902.jpg',
-          'http://img1.qunarzz.com/sight/p0/1709/41/411f234d79457081a3.img.jpg_600x330_b5e86902.jpg'
-        ]
-      }
+      type: Array
     }
   },
   data () {
     return {
       swiperOption: {
-        loop: true,
+        loop: false,
         pagination: '.swiper-pagination',
         paginationType: 'fraction',
         observer: true,
