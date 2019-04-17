@@ -28,7 +28,8 @@ export default {
       sightName: '',
       bannerImg: '',
       gallaryImgs: [],
-      categoryList: []
+      categoryList: [],
+      lastRouteId: ''
       // list: [{
       //   title: '成人票',
       //   children: [{
@@ -97,6 +98,13 @@ export default {
   },
   mounted () {
     this.getDetailsInfo()
+    this.lastRouteId = this.$route.params.id
+  },
+  activated () {
+    if (this.$route.params.id !== this.lastRouteId) {
+      this.lastRouteId = this.$route.params.id
+      this.getDetailsInfo()
+    }
   }
 }
 </script>
