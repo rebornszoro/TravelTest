@@ -7,7 +7,7 @@
         :key="key"
         v-text="key"
         @click="handleClick"
-        @touchstart="handleTouchStart"
+        @touchstart.prevent="handleTouchStart"
         @touchmove="handleTouchMove"
         @touchend="handleTouchEnd"
         :ref="key"

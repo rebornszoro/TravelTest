@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import fastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'babel-polyfill'// support promise in both new and old mashine
 import store from './store/index.js'
 import './assets/styles/border.css'
 import './assets/styles/reset.css'
