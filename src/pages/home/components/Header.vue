@@ -15,7 +15,7 @@
       <span class="iconfont">
         &#xe64a;
       </span>
-      <span class="city" v-text="this.city"></span>
+      <span class="city" v-text="this.city.name"></span>
     </div>
   </router-link>
 </div>

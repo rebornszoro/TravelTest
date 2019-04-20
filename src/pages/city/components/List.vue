@@ -6,7 +6,7 @@
         <div class="button-list">
           <router-link to="/">
             <div class="button-wrapper">
-              <div class="button" v-text="this.city"></div>
+              <div class="button" v-text="this.city.name"></div>
             </div>
           </router-link>
         </div>
@@ -19,7 +19,7 @@
               class="button-wrapper"
               v-for="city of hotCities"
               :key="city.id"
-              @click="handleCityClicked(city.name)"
+              @click="handleCityClicked(city)"
             >
               <div class="button" v-text="city.name"></div>
             </div>
@@ -35,7 +35,7 @@
               v-for="city of cityH"
               :key="city.id"
               v-text="city.name"
-              @click="handleCityClicked(city.name)"
+              @click="handleCityClicked(city)"
             ></div>
           </router-link>
         </div>
@@ -58,10 +58,10 @@ export default {
     ...mapState(['city'])
   },
   methods: {
-    handleCityClicked (name) {
+    handleCityClicked (city) {
       // this.$store.dispatch('changeCity', name)
       // this.$store.commit('changeCity', name)
-      this.changeCity(name)
+      this.changeCity(city)
     },
     ...mapMutations(['changeCity'])
   },

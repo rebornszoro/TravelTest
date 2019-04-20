@@ -11,7 +11,7 @@
             v-text="item.name"
             :key="item.id"
             class="search-item"
-            @click="handleCityClicked(item.name)"
+            @click="handleCityClicked(item)"
           ></li>
         </router-link>
         <li class="search-item" v-show="noResult" v-text="'没有找到相关内容'"></li>
@@ -65,10 +65,10 @@ export default {
     }
   },
   methods: {
-    handleCityClicked (name) {
+    handleCityClicked (city) {
       // this.$store.dispatch('changeCity', name)
       // this.$store.commit('changeCity', name)
-      this.changeCity(name)
+      this.changeCity(city)
     },
     ...mapMutations(['changeCity'])
   },

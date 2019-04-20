@@ -1,8 +1,12 @@
 export default {
-  changeCity (state, name) {
-    state.city = name
+  changeCity (state, city_) {
+    state.city = city_
     try {
-      localStorage.city = name
-    } catch (e) {}
+      localStorage.cityname = city_.name
+      localStorage.cityspell = city_.spell
+      localStorage.cityid = city_.id
+    } catch (e) {
+      console.log(e)
+    }
   }
 }
