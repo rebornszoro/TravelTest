@@ -1,0 +1,50 @@
+{
+  "ret": true,
+  "data": {
+    "sightName": "长隆野生动物世界(5A景区)",
+    "bannerImg": "http://img1.qunarzz.com/sight/p0/1709/41/411f234d79457081a3.img.jpg_600x330_b5e86902.jpg",
+    "gallaryImgs": [
+      "http://img1.qunarzz.com/sight/p0/1709/41/411f234d79457081a3.img.jpg_600x330_b5e86902.jpg",
+      "http://img1.qunarzz.com/sight/p0/1605/d4/d4e2dce9d328d5b290.img.jpg_r_800x800_892973df.jpg"
+    ],
+    "categoryList": [{
+        "title": "成人票",
+        "children": [{
+          "title": "成人三馆联票",
+          "children": [{
+            "title": "成人三馆联票-A售票处"
+          }, {
+            "title": "成人三馆联票-B售票处"
+          }]
+        }, {
+          "title": "成人五馆联票"
+        }]
+      }, {
+        "title": "学生票",
+        "children": [{
+          "title": "学生三馆联票",
+          "children": [{
+            "title": "学生三馆联票-A售票处"
+          }, {
+            "title": "学生三馆联票-B售票处"
+          }]
+        }, {
+          "title": "学生五馆联票"
+        }]
+      }, {
+        "title": "儿童票",
+        "children": [{
+          "title": "儿童三馆联票"
+        }, {
+          "title": "儿童五馆联票"
+        }]
+      }, {
+        "title": "特惠票",
+        "children": [{
+          "title": "特惠三馆联票"
+        }, {
+          "title": "特惠五馆联票"
+        }]
+      }]
+  }
+}

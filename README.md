@@ -8,6 +8,9 @@
 # install dependencies
 npm install
 
+# run the server
+node ./testJsServer/app.js
+
 # serve with hot reload at localhost:8080
 npm run dev
 
